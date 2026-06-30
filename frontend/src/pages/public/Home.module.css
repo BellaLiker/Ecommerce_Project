@@ -1,0 +1,59 @@
+.hero {
+  background: linear-gradient(135deg, #1677ff 0%, #0050b3 100%);
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+}
+
+.heroContent { padding: 60px 0; }
+
+.catCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.catCard:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+.catImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #f0f5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.catImg img { width: 100%; height: 100%; object-fit: cover; }
+
+.catName {
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+}
+
+.brandCard {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 12px;
+  transition: background 0.2s;
+}
+
+.brandCard:hover { background: #e8f0fe; }
