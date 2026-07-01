@@ -29,7 +29,7 @@ export default function Sidebar() {
   return (
     <div className={styles.sidebar}>
       <div className={styles.logo}>{APP_NAME} Admin</div>
-      <Menu mode="inline" selectedKeys={[pathname]} items={items} style={{ border: "none" }} />
+      <Menu mode="inline" theme="dark" selectedKeys={[pathname]} items={items} style={{ border: "none",}} />
     </div>
   );
 }

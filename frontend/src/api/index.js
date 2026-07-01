@@ -5,7 +5,7 @@ export const getProducts = (params) =>
   api.get(ENDPOINTS.PRODUCTS, { params });
 
 export const getProductById = (id) =>
-  api.get(`${ENDPOINTS.PRODUCTS}/${id}`);
+  api.get(`${ENDPOINTS.PRODUCTS}/admin/${id}`);
 
 export const createProduct = (data) =>
   api.post(ENDPOINTS.PRODUCTS, data, {

@@ -6,9 +6,10 @@ import { message } from "antd";
 const CartContext = createContext(null);
 
 export const CartProvider = ({ children }) => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user } = useAuth();
   const [cart, setCart]     = useState({ items: [], total: 0 });
   const [loading, setLoading] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const fetchCart = useCallback(async () => {
     if (!isAuthenticated) return;
@@ -18,7 +19,14 @@ export const CartProvider = ({ children }) => {
     } catch {}
   }, [isAuthenticated]);
 
-  useEffect(() => { fetchCart(); }, [fetchCart]);
+  // Reset cart immediately on logout, refetch on login/user switch
+  useEffect(() => {
+    if (!isAuthenticated) {
+      setCart({ items: [], total: 0 });
+      return;
+    }
+    fetchCart();
+  }, [isAuthenticated, user?.id, fetchCart]);
 
   const add = async (productId, quantity = 1) => {
     setLoading(true);
@@ -55,10 +63,16 @@ export const CartProvider = ({ children }) => {
     } catch {}
   };
 
+  const openDrawer  = () => setDrawerOpen(true);
+  const closeDrawer = () => setDrawerOpen(false);
+
   const itemCount = cart.items?.reduce((s, i) => s + i.quantity, 0) || 0;
 
   return (
-    <CartContext.Provider value={{ cart, loading, itemCount, fetchCart, add, update, remove, clear }}>
+    <CartContext.Provider value={{
+      cart, loading, itemCount, fetchCart, add, update, remove, clear,
+      drawerOpen, openDrawer, closeDrawer,
+    }}>
       {children}
     </CartContext.Provider>
   );

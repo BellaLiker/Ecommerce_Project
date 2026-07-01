@@ -22,7 +22,7 @@ export default function UserSidebar() {
   return (
     <div className={styles.sidebar}>
       <div className={styles.logo}>My Account</div>
-      <Menu mode="inline" selectedKeys={[pathname]} items={items} style={{ border: "none" }} />
+      <Menu mode="inline"theme="dark" selectedKeys={[pathname]} items={items} style={{ border: "none" }} />
     </div>
   );
 }

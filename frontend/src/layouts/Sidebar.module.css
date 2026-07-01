@@ -1,7 +1,7 @@
 .sidebar {
   width: 220px;
   min-height: 100vh;
-  background: #001529;
+  background: #001629;
   flex-shrink: 0;
 }
 
@@ -9,7 +9,7 @@
   padding: 20px 16px;
   font-size: 16px;
   font-weight: 800;
-  color: #1677ff;
+  color: #ffffff;
   border-bottom: 1px solid #122240;
 }
 

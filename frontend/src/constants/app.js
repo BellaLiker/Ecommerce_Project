@@ -1,4 +1,4 @@
-export const APP_NAME = "ShopEase";
+export const APP_NAME = "KOKO STORE";
 
 export const ORDER_STATUS_COLORS = {
   pending:    "gold",

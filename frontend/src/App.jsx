@@ -9,7 +9,7 @@ import "./styles/global.css";
 export default function App() {
   return (
     <BrowserRouter>
-      <ConfigProvider theme={{ token: { colorPrimary: "#1677ff", borderRadius: 8 } }}>
+      <ConfigProvider theme={{ token: { colorPrimary: "#656565", borderRadius: 8 } }}>
         <AuthProvider>
           <CartProvider>
             <WishlistProvider>

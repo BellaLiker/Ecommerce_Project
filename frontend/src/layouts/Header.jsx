@@ -10,11 +10,12 @@ import { useState } from "react";
 import { ROUTES } from "../constants/routes.js";
 import { APP_NAME } from "../constants/app.js";
 import { getUserImage } from "../config/image.js";
+import CartDrawer from "../components/CartDrawer.jsx";
 import styles from "./Header.module.css";
 
 export default function Header() {
   const { user, isAuthenticated, isAdmin, logout } = useAuth();
-  const { itemCount } = useCart();
+  const { itemCount, openDrawer } = useCart();
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
 
@@ -63,11 +64,9 @@ export default function Header() {
               <Button type="text" icon={<HeartOutlined />} />
             </Link>
           )}
-          <Link to={ROUTES.CART}>
-            <Badge count={itemCount} size="small">
-              <Button type="text" icon={<ShoppingCartOutlined />} />
-            </Badge>
-          </Link>
+          <Badge count={itemCount} size="small">
+            <Button type="text" icon={<ShoppingCartOutlined />} onClick={openDrawer} />
+          </Badge>
           {isAuthenticated ? (
             <Dropdown menu={{ items: userMenuItems }} placement="bottomRight">
               <Avatar
@@ -84,6 +83,7 @@ export default function Header() {
           )}
         </div>
       </div>
+      <CartDrawer />
     </header>
   );
 }
